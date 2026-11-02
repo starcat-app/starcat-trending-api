@@ -75,7 +75,7 @@ GitHub Trending 数据 API，使用 Go 语言实现，输出统一 envelope 格�
 
 ### 环境要求
 
-- Go 1.25+
+- Go 1.26.10+
 
 ### 本地运行
 

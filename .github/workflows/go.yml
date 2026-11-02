@@ -34,14 +34,8 @@ jobs:
     name: Build & Test
     runs-on: ubuntu-latest
 
-    # Go 版本矩阵
-    # 注意: 项目 go.mod 要求 go >= 1.25.0 (由 dependabot PR #6 拽高的),
-    # 矩阵不能放低于 1.25 的版本, 否则 GOTOOLCHAIN=local 会拒绝构建
-    strategy:
-      matrix:
-        go-version: [1.25]
-      # 任意一个版本失败则整体失败
-      fail-fast: false
+    env:
+      GOTOOLCHAIN: local
 
     steps:
       # 1. 拉取代码
@@ -52,7 +46,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version-file: go.mod
           cache: true
 
       # 3. 验证依赖完整性
@@ -71,6 +65,9 @@ jobs:
       # 5. 静态分析 (go vet)
       - name: Run go vet
         run: go vet ./...
+
+      - name: Check vulnerabilities
+        run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
 
       # 宿主机编译不会应用 .dockerignore；必须构建真实镜像上下文，避免遗漏源码目录。
       - name: Build Docker image

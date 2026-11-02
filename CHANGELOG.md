@@ -22,6 +22,10 @@
 
 ## [Unreleased]
 
+### Security
+- 将 Go 工具链、CI 和 Docker 构建统一至 1.26.10，并在 CI 中加入固定版本的 govulncheck 检查。
+- 将 `golang.org/x/net` 升级至 v0.62.0，修复 HTML 解析的二次复杂度漏洞及相关安全问题。
+
 ### Fixed
 - **Trending 侧栏全「未分类」+ repo 卡片无 language**（2026-06-18 生产 fly.dev 排查）。
   - 根因 ①：GitHub trending 页 DOM 改版，旧 spider 用「第 3 个 div + 三层嵌套 span」解析 language，

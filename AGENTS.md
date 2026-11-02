@@ -9,7 +9,7 @@ GitHub Trending 数据 API：爬虫抓取 trending 页 → SQLite 入库 → Git
 
 ## 技术栈
 
-- Go 1.25.0 · `net/http`
+- Go 1.26.10 · `net/http`
 - `github.com/PuerkitoBio/goquery`（HTML 爬虫）
 - `github.com/robfig/cron/v3` · `modernc.org/sqlite`
 - `github.com/starcat-app/starcat-api-kit` v0.3.0

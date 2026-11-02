@@ -24,6 +24,7 @@ on:
 env:
   BINARY_NAME: starcat-trending-api
   ENTRY: ./cmd/server/
+  GOTOOLCHAIN: local
 
 # 创建/更新 GitHub Release 需要写权限
 permissions:
@@ -81,12 +82,12 @@ jobs:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           fetch-depth: 0
 
-      # 2. 安装 Go (与 go.yml 矩阵版本一致: 1.25)
+      # 2. 安装 go.mod 指定的 Go 安全补丁版本
       #    cache: true 复用 go mod 下载缓存, 加速重复构建
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version: '1.25'
+          go-version-file: go.mod
           cache: true
 
       - name: Resolve release version
