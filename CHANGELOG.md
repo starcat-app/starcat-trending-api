@@ -5,6 +5,12 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [Unreleased]
+
+### Security
+
+- 将构建工具链和 Docker 镜像升级至 Go 1.26.11，包含最新 Go 1.26 安全修复。
+
 ## [2.1.0] - 2026-08-27
 
 ### Added

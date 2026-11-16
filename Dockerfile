@@ -2,8 +2,8 @@
 # Stage 1: 构建阶段
 # ===========================================
 # 与 starcat-sharing-api / starcat-weekly-api 保持一致的多阶段构建
-# Go 版本由项目 go.mod 决定 (1.26.10)
-FROM golang:1.26.10-alpine AS builder
+# Go 版本由项目 go.mod 决定 (1.26.11)
+FROM golang:1.26.11-alpine AS builder
 
 ENV GOTOOLCHAIN=local
 

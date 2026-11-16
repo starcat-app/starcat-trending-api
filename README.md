@@ -75,7 +75,7 @@ GitHub Trending data API written in Go with a consistent response envelope.
 
 ### Requirements
 
-- Go 1.26.10+
+- Go 1.26.11+
 
 ### Run Locally
 
